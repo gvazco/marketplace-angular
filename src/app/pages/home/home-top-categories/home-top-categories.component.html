@@ -1,0 +1,38 @@
+ <!--=====================================
+Top Categoríes
+======================================-->  
+
+<div 
+*ngIf="!cargando"
+class="ps-top-categories">
+
+    <div class="container">
+
+        <h3>Top categories of the month</h3>
+
+        <div class="row">
+
+            <div 
+			*ngFor="let category of categories"
+            class="col-xl-2 col-lg-3 col-sm-4 col-6 ">
+                <div class="ps-block--category">
+                	<a class="ps-block__overlay" routerLink="products/{{category.url}}"></a>
+                	<img src="{{path}}img/categories/{{category.image}}" alt="">
+                    <p>{{category.name}}</p>
+                </div>
+            </div>    
+
+        </div>
+    </div>
+
+</div><!-- End Top Categories -->
+
+<!--=====================================
+Preload
+======================================-->
+
+<div 
+*ngIf="cargando"
+class="d-flex justify-content-center">
+    <div class="spinner-border text-muted my-5"></div>
+</div>

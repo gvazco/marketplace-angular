@@ -1,0 +1,39 @@
+<!--=====================================
+Header Promotion
+======================================-->
+
+<div
+  *ngIf="!preload && top_banner != null"
+  class="ps-block--promotion-header bg--cover"
+  style="background: url({{ path }}img/products/{{ category }}/top/{{
+    top_banner['IMG tag']
+  }});"
+>
+  <div class="container">
+    <div class="ps-block__left">
+      <h3>{{ top_banner["H3 tag"] }}</h3>
+      <figure>
+        <p>{{ top_banner["P1 tag"] }}</p>
+        <h4>{{ top_banner["H4 tag"] }}</h4>
+      </figure>
+    </div>
+    <div class="ps-block__center">
+      <p>
+        {{ top_banner["P2 tag"] }}<span>{{ top_banner["Span tag"] }}</span>
+      </p>
+    </div>
+    <a class="ps-btn ps-btn--sm" routerLink="product/{{ url }}">{{
+      top_banner["Button tag"]
+    }}</a>
+  </div>
+</div>
+
+<!--=====================================
+Preload
+======================================-->
+<div
+  *ngIf="preload && top_banner == null"
+  class="d-flex justify-content-center"
+>
+  <div class="spinner-border text-muted my-3"></div>
+</div>

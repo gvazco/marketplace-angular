@@ -1,0 +1,220 @@
+<!--=====================================
+Home Deal Hot Today
+======================================-->  
+
+<div class="ps-deal-hot">
+
+    <div class="container">
+
+        <div class="row">
+
+        	<!--=====================================
+			Column Deal Hot
+			======================================-->  
+
+            <div class="col-xl-9 col-12 ">
+
+                <div 
+                 *ngIf="!cargando"
+                 class="ps-block--deal-hot" data-mh="dealhot">
+
+                    <div class="ps-block__header">
+
+                        <h3>Deal hot today</h3>
+
+                        <div class="ps-block__navigation">
+                        	<a class="ps-carousel__prev" href=".ps-carousel--deal-hot">
+                        		<i class="icon-chevron-left"></i>
+                        	</a>
+                        	<a class="ps-carousel__next" href=".ps-carousel--deal-hot">
+                        		<i class="icon-chevron-right"></i>
+                        	</a>
+                        </div>
+
+                    </div>
+
+                    <div class="ps-product__content">
+
+                        <div class="ps-carousel--deal-hot ps-carousel--deal-hot owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+
+                            <!--=====================================
+							Product Deal Home
+							======================================-->                                 
+                            <div 
+							*ngFor="let i of indexes; let lastIndex = last"
+                            class="ps-product--detail ps-product--hot-deal">
+
+                                <div class="ps-product__header">
+
+                                    <div class="ps-product__thumbnail galleryMix_1" 
+                                    data-vertical="true"
+                                    [attr.gallery]="products[i].gallery"
+                                    [attr.category]="products[i].category">
+
+                                        <figure>
+
+                                            <div class="ps-wrapper">
+
+                                                <div class="ps-product__gallery galleryMix_2" data-arrow="true"></div>
+
+                                                <div 
+												[attr.offer]="products[i].offer"
+												[attr.price]="products[i].price"
+                                                class="ps-product__badge offer_1">
+                                                	
+                                                </div>
+
+                                            </div>
+
+                                        </figure>
+
+                                        <div class="ps-product__variants galleryMix_3" 
+                                        data-item="4" 
+                                        data-md="3" 
+                                        data-sm="3" 
+                                        data-arrow="true"></div>
+
+                                    </div>
+
+                                    <div class="ps-product__info">
+
+                                        <h5>{{products[i].category}}</h5>
+
+                                        <h3 class="ps-product__name">{{products[i].name}}</h3>
+
+                                        <div class="ps-product__meta">
+
+                                            <h4 class="ps-product__price sale">
+
+                                            	<span class="offer_2"></span> 
+
+                                            	<del> ${{products[i].price}}</del></h4>
+
+                                            <div 
+                                            [attr.reviews]="products[i].reviews"
+                                            class="ps-product__rating review_1">
+
+                                                <select class="ps-rating review_2" data-read-only="true">
+
+                                                  
+
+                                                </select>
+
+                                                <span class="review_3"></span>
+
+                                            </div>
+
+                                            <div class="ps-product__specification">
+
+                                                <p>Status:<strong class="in-stock"> In Stock</strong></p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="ps-product__expires">
+
+                                            <p>Expires In</p>
+
+                                            <ul class="ps-countdown offer_3" [attr.data-time]="">
+
+                                                <li><span class="days"></span>
+                                                    <p>Days</p>
+                                                </li>
+
+                                                <li><span class="hours"></span>
+                                                    <p>Hours</p>
+                                                </li>
+
+                                                <li><span class="minutes"></span>
+                                                    <p>Minutes</p>
+                                                </li>
+
+                                                <li><span class="seconds"></span>
+                                                    <p>Seconds</p>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                        <div class="ps-product__processs-bar">
+
+                                            <div class="ps-progress" [attr.data-value]="products[i].stock">
+                                            	<span class="ps-progress__value"></span>
+                                            </div>
+
+                                            <p><strong>{{100-products[i].stock}}/100</strong> Sold</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+								
+
+							{{ lastIndex ? callback() : ""}}
+                            </div><!-- End Product Deal Hot -->
+
+                        </div><!-- End carousel Deal Hot -->
+
+                    </div><!-- End product content Deal Hot -->
+
+                </div><!-- End deal hot -->
+
+                <!--=====================================
+                Preload
+                ======================================-->
+
+                <div 
+                *ngIf="cargando"
+                class="d-flex justify-content-center">
+                    <div class="spinner-border text-muted my-5"></div>
+                </div>
+
+            </div><!-- End Columns --> 
+
+            <!--=====================================
+			Column Top 20 Best Seller
+			======================================-->  
+
+            <div class="col-xl-3 col-12 ">
+
+                <aside class="widget widget_best-sale" data-mh="dealhot">
+
+                    <h3 class="widget-title">Top 20 Best Seller</h3>
+
+                    <div class="widget__content">
+
+                        <div class="d-flex justify-content-center preload">
+                            <div class="spinner-border text-muted my-5"></div>
+                        </div>
+
+
+                        <div class="ps-carousel--product-box owl-slider" data-owl-auto="true" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+
+             <!--            <div  [attr.top20]> -->
+
+                            <div 
+                            *ngFor="let block of topSalesBlock; let lastIndex = last"
+                            class="ps-product-group topSaleBlock">
+
+
+                            {{ lastIndex ? callbackBestSeller(topSales) : ""}}
+                            </div><!-- End Product Group -->
+
+                       
+
+                        </div>
+
+                    </div>
+
+                </aside><!-- End Aside --> 
+
+            </div><!-- End Columns --> 
+
+        </div>
+
+    </div>
+
+</div><!-- End Home Deal Hot -->
